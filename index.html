@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notas ML</title>
+<meta name="theme-color" content="#efe4c8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-view="lib">
+<div id="bar">
+  <a id="back" href="#/" aria-label="Biblioteca">←</a>
+  <button id="menu" aria-label="Índice">☰</button>
+  <strong id="ttl">Notas ML</strong><span class="sp"></span>
+  <button id="fm" aria-label="Letra más chica">A−</button><button id="fp" aria-label="Letra más grande">A+</button>
+  <select id="ff" aria-label="Tipo de letra"><option value="g">Serif</option><option value="s">Sans</option><option value="m">Mono</option></select>
+  <select id="th" aria-label="Tema"><option value="sepia">Sepia</option><option value="light">Claro</option><option value="dark">Oscuro</option></select>
+</div>
+<aside id="side"><input id="q" type="search" placeholder="Buscar en la nota…" autocomplete="off"><div id="res" hidden></div><nav id="toc"></nav></aside>
+<main>
+  <section id="lib">
+    <h1 class="libtitle">Notas</h1>
+    <div id="list"></div>
+    <p id="status" class="muted"></p>
+    <div class="tools">
+      <button id="exp">Exportar progreso</button>
+      <button id="imp">Importar progreso</button>
+      <input id="impf" type="file" accept="application/json,.json" hidden>
+    </div>
+    <p class="muted small" id="ver"></p>
+  </section>
+  <article id="reader"><div id="content"></div></article>
+</main>
+<footer id="prog"><input id="sl" type="range" min="0" max="1000" value="0" aria-label="Progreso de lectura"><span id="pct">0 %</span></footer>
+<div id="toast" hidden></div>
+<script src="app.js"></script>
+</body></html>
