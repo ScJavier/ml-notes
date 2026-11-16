@@ -28,7 +28,7 @@ h1{font-size:1.45em;line-height:1.2;margin:2.2em 0 .6em;border-bottom:1px solid 
 h1.title{margin-top:.4em;font-size:1.8em;border:0} .author{color:var(--mut);margin:0 0 1.5em}
 p{margin:0 0 1em} ul{padding-left:1.3em} li{margin-bottom:.4em}
 .katex-display{overflow-x:auto;overflow-y:hidden;padding:.3em 0;margin:1em 0}
-table{border-collapse:collapse;margin:1.2em auto;font-size:.92em}
+table{border-collapse:collapse;margin:1.2em auto;font-size:.92em;display:block;max-width:100%;overflow-x:auto;width:max-content}
 th,td{border:1px solid var(--bd);padding:.35em .6em}
 blockquote{margin:1.2em 0;padding:.2em 1em;border-left:4px solid var(--acc);background:var(--side)}
 code{font-family:ui-monospace,Menlo,monospace;font-size:.88em;background:var(--side);padding:.05em .3em;border-radius:4px}
@@ -42,3 +42,8 @@ code{font-family:ui-monospace,Menlo,monospace;font-size:.88em;background:var(--s
 .tools{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.2rem 0}
 .tools button{font:14px system-ui,sans-serif;color:var(--fg);background:var(--side);border:1px solid var(--bd);border-radius:8px;padding:.5rem .8rem}
 #toast{position:fixed;left:50%;bottom:4rem;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:.5rem .9rem;border-radius:8px;font:14px system-ui,sans-serif;z-index:30;max-width:90vw}
+
+pre{white-space:pre-wrap;word-break:break-word;overflow-x:auto;background:var(--side);border:1px solid var(--bd);border-radius:8px;padding:.7em .9em;margin:1.1em 0;font-size:.74em;line-height:1.45}
+pre code{background:none;padding:0;font-size:1em}
+
+@media(max-width:480px){.katex-display>.katex{font-size:1.04em}}

@@ -1,1 +1,1 @@
-{"name":"notas-ml-tools","private":true,"dependencies":{"katex":"^0.16.0"}}
+{"name":"notas-ml-tools","private":true,"dependencies":{"katex":"0.19.1"}}

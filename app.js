@@ -30,6 +30,7 @@
     if (pos) { // reanclar: el cambio de letra mueve los píxeles, no el contenido
       S.restoring = true;
       requestAnimationFrame(function () {
+        fitMath();
         if (pos.p >= 1) toBottom(); else goTo(pos.k, pos.f);
         setTimeout(function () { S.restoring = false; updateUI(); }, 150);
       });
@@ -40,6 +41,18 @@
   $('#ff').onchange = function () { prefs.ff = this.value; applyPrefs(); };
   $('#th').onchange = function () { prefs.th = this.value; applyPrefs(); };
   $('#menu').onclick = function () { document.body.classList.toggle('open'); };
+
+  /* ---------- ecuaciones centradas: encoger para que quepan ---------- */
+  function fitMath() {
+    [].forEach.call(document.querySelectorAll('#content .katex-display > .katex'), function (k) {
+      k.style.fontSize = '';
+      var d = k.parentNode, w = d.clientWidth, sw = d.scrollWidth;
+      if (w > 0 && sw > w + 1) {
+        var base = parseFloat(getComputedStyle(k).fontSize);
+        k.style.fontSize = (base * Math.max(0.72, (w - 2) / sw)) + 'px';
+      }
+    });
+  }
 
   /* ---------- progreso ---------- */
   function getProg(id) { try { return JSON.parse(lsGet('prog:' + id)); } catch (e) { return null; } }
@@ -113,13 +126,14 @@
   }
 
   /* ---------- lector ---------- */
-  var SEL = '#content > h1, #content > h2, #content > h3, #content > p, #content li, #content > table, #content > blockquote > p';
+  var SEL = '#content > h1, #content > h2, #content > h3, #content > p, #content li, #content > table, #content > blockquote > p, #content > pre';
   function openNote(n) {
     return fetch(n.file, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw 0; return r.text(); }).then(function (html) {
       showView('reader');
       S.id = n.id; S.rev = n.rev || ''; S.ready = false; S.restoring = true; S.sidx = null;
       document.title = n.title; $('#ttl').textContent = n.title;
       $('#content').innerHTML = '<h1 class="title">' + esc(n.title) + '</h1><p class="author">' + esc(n.author || '') + '</p>' + html;
+      fitMath();
       S.blocks = [].slice.call(document.querySelectorAll(SEL));
       S.w = S.blocks.map(function (b) { return Math.max(1, b.textContent.length); });
       S.cum = []; var acc = 0; S.w.forEach(function (w, i) { S.cum[i] = acc; acc += w; }); S.total = acc || 1;
@@ -136,7 +150,7 @@
       restore();
       var fontsReady = (document.fonts && document.fonts.ready) || Promise.resolve();
       fontsReady.then(function () {
-        setTimeout(function () { restore(); setTimeout(function () { S.restoring = false; S.ready = true; updateUI(); }, 300); }, 150);
+        setTimeout(function () { fitMath(); restore(); setTimeout(function () { S.restoring = false; S.ready = true; updateUI(); }, 300); }, 150);
       });
     });
   }
@@ -215,6 +229,14 @@
       toast('Progreso importado (' + n + ')'); renderLib();
     }).catch(function () { toast('Archivo no válido'); }).then(function () { self.value = ''; });
   };
+
+  var rz = 0;
+  window.addEventListener('resize', function () {
+    clearTimeout(rz); rz = setTimeout(function () {
+      if (S.id === null || !S.ready) return;
+      var pos = locate(); fitMath(); if (pos.p >= 1) toBottom(); else goTo(pos.k, pos.f);
+    }, 200);
+  });
 
   /* ---------- rutas ---------- */
   var indexP = loadIndex();
