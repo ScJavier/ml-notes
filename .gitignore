@@ -2,3 +2,4 @@ node_modules/
 tools/m_in.json
 tools/m_out.json
 __pycache__/
+catboost_info/
