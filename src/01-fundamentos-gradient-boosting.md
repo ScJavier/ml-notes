@@ -77,7 +77,7 @@ Así $h_m$ es la función de la clase que mejor imita la dirección de máximo d
 >
 > (b) Ajustar un árbol de regresión con $J$ hojas a los $r_{im}$; esto da las regiones $R_{jm}$.
 >
-> (c) Para cada hoja, $\gamma_{jm} = \arg\min_{\gamma} \sum_{\mathbf{x}_i\in R_{jm}} \ell\big(y_i, F_{m-1}(\mathbf{x}_i)+\gamma\big)$.
+> (c) Para cada hoja $j$, elegir $\gamma_{jm}$ que minimice $\sum_{\mathbf{x}_i\in R_{jm}} \ell\big(y_i, F_{m-1}(\mathbf{x}_i)+\gamma\big)$.
 >
 > (d) Actualizar $F_m(\mathbf{x}) = F_{m-1}(\mathbf{x}) + \nu \sum_{j} \gamma_{jm}\,\mathbf{1}\{\mathbf{x}\in R_{jm}\}$, con $\nu\in(0,1]$.
 
@@ -157,14 +157,14 @@ Datos: $x=1,\dots,6$ e $y=(1,2,1,3,6,5)$. Usamos *stumps* ($J=2$) y $\nu=0.5$.
 
 El mejor corte es $x<4.5$: media izquierda $-1.25$, media derecha $2.5$. Entonces $F_1=3+0.5\cdot(-1.25)=2.375$ para $x\le 4$ y $F_1 = 3+0.5\cdot 2.5=4.25$ para $x\ge 5$. El ECM baja a $1.323$.
 
-**Iteración 2.** Residuos $r=(-1.375,-0.375,-1.375,0.625,1.75,0.75)$.
+**Iteración 2.** Residuos $-1.375$, $-0.375$, $-1.375$, $0.625$, $1.75$ y $0.75$.
 
 | Corte | 1.5 | 2.5 | 3.5 | 4.5 | 5.5 |
 |:--|:--|:--|:--|:--|:--|
 | SSE | 5.67 | 5.64 | **1.43** | 3.25 | 7.26 |
 
 Ahora el mejor corte es distinto, $x<3.5$: medias $-1.0417$ y $1.0417$. Resulta
-$F_2=(1.854,\,1.854,\,1.854,\,2.896,\,4.771,\,4.771)$ y el ECM baja a $0.509$.
+$F_2 = 1.854$ para $x\le3$, $2.896$ para $x=4$ y $4.771$ para $x\ge5$; el ECM baja a $0.509$.
 
 Dos stumps con cortes distintos ya producen una función escalonada de tres peldaños: cada iteración puede refinar una zona distinta del espacio.
 

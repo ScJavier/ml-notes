@@ -1,0 +1,212 @@
+{
+ "tasa_positivos": 0.281,
+ "arboles": 322,
+ "metricas": {
+  "modelo": {
+   "logloss": 0.4317,
+   "auc": 0.8416,
+   "brier": 0.1402,
+   "media_pred": 0.281
+  },
+  "oráculo (p real)": {
+   "logloss": 0.4196,
+   "auc": 0.8518,
+   "brier": 0.1359,
+   "media_pred": 0.283
+  },
+  "tasa constante": {
+   "logloss": 0.5971,
+   "auc": 0.5,
+   "brier": 0.2035,
+   "media_pred": 0.281
+  },
+  "con scale_pos_weight": {
+   "logloss": 0.4788,
+   "auc": 0.8331,
+   "brier": 0.1578,
+   "media_pred": 0.378
+  },
+  "scale_pos_weight corregido": {
+   "logloss": 0.4504,
+   "auc": 0.8331,
+   "brier": 0.1451,
+   "media_pred": 0.254
+  },
+  "aditivo (sin interacciones)": {
+   "logloss": 0.4611,
+   "auc": 0.8144,
+   "brier": 0.1514,
+   "media_pred": 0.28
+  }
+ },
+ "tasa_prueba": 0.284,
+ "scale_pos_weight": 2.57,
+ "H_escalas": [
+  {
+   "par": "x3×ruido",
+   "H2_logodds_modelo": 0.052,
+   "H2_logodds_real": 1.0,
+   "H2_prob_modelo": 0.05,
+   "H2_prob_real": 1.0,
+   "H_prob_modelo_sin_norm": 0.003
+  },
+  {
+   "par": "b×x5",
+   "H2_logodds_modelo": 0.445,
+   "H2_logodds_real": 0.574,
+   "H2_prob_modelo": 0.501,
+   "H2_prob_real": 0.685,
+   "H_prob_modelo_sin_norm": 0.067
+  },
+  {
+   "par": "x1×x4",
+   "H2_logodds_modelo": 0.002,
+   "H2_logodds_real": 0.0,
+   "H2_prob_modelo": 0.031,
+   "H2_prob_real": 0.031,
+   "H_prob_modelo_sin_norm": 0.032
+  },
+  {
+   "par": "x1×cat",
+   "H2_logodds_modelo": 0.004,
+   "H2_logodds_real": 0.0,
+   "H2_prob_modelo": 0.027,
+   "H2_prob_real": 0.026,
+   "H_prob_modelo_sin_norm": 0.028
+  },
+  {
+   "par": "x1×x2",
+   "H2_logodds_modelo": 0.005,
+   "H2_logodds_real": 0.0,
+   "H2_prob_modelo": 0.035,
+   "H2_prob_real": 0.023,
+   "H_prob_modelo_sin_norm": 0.033
+  },
+  {
+   "par": "x1×x5",
+   "H2_logodds_modelo": 0.004,
+   "H2_logodds_real": 0.0,
+   "H2_prob_modelo": 0.025,
+   "H2_prob_real": 0.019,
+   "H_prob_modelo_sin_norm": 0.028
+  },
+  {
+   "par": "x4×cat",
+   "H2_logodds_modelo": 0.009,
+   "H2_logodds_real": 0.0,
+   "H2_prob_modelo": 0.032,
+   "H2_prob_real": 0.013,
+   "H_prob_modelo_sin_norm": 0.018
+  },
+  {
+   "par": "x4×x5",
+   "H2_logodds_modelo": 0.006,
+   "H2_logodds_real": 0.0,
+   "H2_prob_modelo": 0.016,
+   "H2_prob_real": 0.011,
+   "H_prob_modelo_sin_norm": 0.013
+  }
+ ],
+ "ice_amplitud": {
+  "alta_logodds": 2.91,
+  "baja_logodds": 2.58,
+  "alta_prob": 0.552,
+  "baja_prob": 0.098
+ },
+ "permutacion_metricas": [
+  {
+   "variable": "x1",
+   "log-loss": 1.0,
+   "AUC": 1.0,
+   "Brier": 1.0,
+   "gain": 1.0
+  },
+  {
+   "variable": "x5",
+   "log-loss": 0.471,
+   "AUC": 0.443,
+   "Brier": 0.489,
+   "gain": 0.459
+  },
+  {
+   "variable": "b",
+   "log-loss": 0.246,
+   "AUC": 0.229,
+   "Brier": 0.269,
+   "gain": 0.251
+  },
+  {
+   "variable": "x2",
+   "log-loss": 0.222,
+   "AUC": 0.21,
+   "Brier": 0.249,
+   "gain": 0.341
+  },
+  {
+   "variable": "cat",
+   "log-loss": 0.207,
+   "AUC": 0.198,
+   "Brier": 0.221,
+   "gain": 0.206
+  },
+  {
+   "variable": "x4",
+   "log-loss": 0.192,
+   "AUC": 0.187,
+   "Brier": 0.2,
+   "gain": 0.239
+  },
+  {
+   "variable": "ruido",
+   "log-loss": -0.002,
+   "AUC": -0.003,
+   "Brier": -0.002,
+   "gain": 0.124
+  },
+  {
+   "variable": "x3",
+   "log-loss": -0.004,
+   "AUC": -0.006,
+   "Brier": -0.005,
+   "gain": 0.119
+  }
+ ],
+ "calibracion_por_cat": [
+  {
+   "cat": "A",
+   "n": 2354,
+   "observada": 0.269,
+   "predicha": 0.262
+  },
+  {
+   "cat": "B",
+   "n": 1620,
+   "observada": 0.36,
+   "predicha": 0.357
+  },
+  {
+   "cat": "C",
+   "n": 1248,
+   "observada": 0.223,
+   "predicha": 0.21
+  },
+  {
+   "cat": "D",
+   "n": 1179,
+   "observada": 0.254,
+   "predicha": 0.279
+  },
+  {
+   "cat": "E",
+   "n": 796,
+   "observada": 0.452,
+   "predicha": 0.423
+  },
+  {
+   "cat": "F",
+   "n": 803,
+   "observada": 0.151,
+   "predicha": 0.16
+  }
+ ]
+}

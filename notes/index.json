@@ -4,7 +4,7 @@
   "title": "Fundamentos de Gradient Boosting",
   "author": "Javier",
   "file": "notes/fundamentos-gradient-boosting.html",
-  "rev": "79ed6f29"
+  "rev": "724bbc08"
  },
  {
   "id": "xgboost-objetivo-y-ganancia",
@@ -12,5 +12,33 @@
   "author": "Javier",
   "file": "notes/xgboost-objetivo-y-ganancia.html",
   "rev": "2dce2ede"
+ },
+ {
+  "id": "lightgbm",
+  "title": "LightGBM: histogramas, crecimiento por hojas, GOSS y EFB",
+  "author": "Javier",
+  "file": "notes/lightgbm.html",
+  "rev": "0f57c363"
+ },
+ {
+  "id": "catboost",
+  "title": "CatBoost: estadísticas de target ordenadas, boosting ordenado y árboles simétricos",
+  "author": "Javier",
+  "file": "notes/catboost.html",
+  "rev": "332321ee"
+ },
+ {
+  "id": "explicabilidad-lightgbm-regresion",
+  "title": "Explicabilidad práctica de LightGBM I: regresión",
+  "author": "Javier",
+  "file": "notes/explicabilidad-lightgbm-regresion.html",
+  "rev": "86121656"
+ },
+ {
+  "id": "explicabilidad-lightgbm-clasificacion",
+  "title": "Explicabilidad práctica de LightGBM II: clasificación binaria",
+  "author": "Javier",
+  "file": "notes/explicabilidad-lightgbm-clasificacion.html",
+  "rev": "1b1cbdc9"
  }
 ]

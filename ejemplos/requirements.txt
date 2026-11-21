@@ -1,0 +1,7 @@
+numpy
+pandas
+scikit-learn>=1.4
+matplotlib
+lightgbm>=4.0
+catboost>=1.2
+dalex>=1.7

@@ -7,3 +7,8 @@ PWA para leer notas de estudio de ML con fórmulas (KaTeX), barra lateral, búsq
   Requiere `pandoc` y Node: `cd tools && npm install && python3 build.py`.
 - `app.js`, `style.css`, `sw.js`, `manifest.webmanifest`: la app. Funciona sin conexión.
 - `vendor/katex`: CSS y fuentes de KaTeX 0.19.1 (deben coincidir con la versión de `tools/package.json`).
+- `ejemplos/`: scripts que generan los experimentos y figuras de las notas (`pip install -r ejemplos/requirements.txt`).
+  - `lightgbm_experimentos.py`, `catboost_experimentos.py`: experimentos sintéticos de las notas 3 y 4.
+  - `simulacion.py`: datos con estructura conocida; `herramientas.py`: H de Friedman, ALE, residuos agrupados, etc.
+  - `explicabilidad_regresion.py`, `explicabilidad_clasificacion.py`: notas 5 y 6 (escriben figuras en `src/fig/`).
+- Las figuras de `src/fig/` se incrustan como WebP dentro de cada nota al construir, para que funcionen sin conexión.

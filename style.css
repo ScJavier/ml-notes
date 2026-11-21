@@ -47,3 +47,12 @@ pre{white-space:pre-wrap;word-break:break-word;overflow-x:auto;background:var(--
 pre code{background:none;padding:0;font-size:1em}
 
 @media(max-width:480px){.katex-display>.katex{font-size:1.04em}}
+figure{margin:1.3em 0;text-align:center}
+figure img{max-width:100%;height:auto;border-radius:8px;background:#fcfcfb;border:1px solid var(--bd)}
+figcaption{font:13px/1.4 system-ui,sans-serif;color:var(--mut);margin-top:.45em;text-align:left}
+[data-theme=dark] figure img{filter:brightness(.9)}
+p code,li code,td code,figcaption code{overflow-wrap:anywhere}
+figure img{cursor:zoom-in}
+figcaption::after{content:" · Toca la figura para ampliarla.";opacity:.8}
+#zoom{position:fixed;inset:0;z-index:50;background:rgba(20,20,20,.92);overflow:auto;padding:3.5rem .5rem 3rem;cursor:zoom-out;-webkit-overflow-scrolling:touch}
+#zoom img{display:block;max-width:none;height:auto;margin:0 auto;border-radius:6px;background:#fcfcfb}

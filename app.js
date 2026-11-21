@@ -126,7 +126,7 @@
   }
 
   /* ---------- lector ---------- */
-  var SEL = '#content > h1, #content > h2, #content > h3, #content > p, #content li, #content > table, #content > blockquote > p, #content > pre';
+  var SEL = '#content > h1, #content > h2, #content > h3, #content > p, #content li, #content > table, #content > blockquote > p, #content > pre, #content > figure';
   function openNote(n) {
     return fetch(n.file, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw 0; return r.text(); }).then(function (html) {
       showView('reader');
@@ -135,7 +135,7 @@
       $('#content').innerHTML = '<h1 class="title">' + esc(n.title) + '</h1><p class="author">' + esc(n.author || '') + '</p>' + html;
       fitMath();
       S.blocks = [].slice.call(document.querySelectorAll(SEL));
-      S.w = S.blocks.map(function (b) { return Math.max(1, b.textContent.length); });
+      S.w = S.blocks.map(function (b) { return b.tagName === 'FIGURE' ? 500 : Math.max(1, b.textContent.length); });
       S.cum = []; var acc = 0; S.w.forEach(function (w, i) { S.cum[i] = acc; acc += w; }); S.total = acc || 1;
       buildToc(); $('#q').value = ''; $('#res').hidden = true; $('#toc').hidden = false;
       window.scrollTo({ top: 0, behavior: 'instant' });
@@ -236,6 +236,17 @@
       if (S.id === null || !S.ready) return;
       var pos = locate(); fitMath(); if (pos.p >= 1) toBottom(); else goTo(pos.k, pos.f);
     }, 200);
+  });
+
+  /* ---------- figuras: tocar para ampliar ---------- */
+  document.getElementById('content').addEventListener('click', function (ev) {
+    var im = ev.target.closest && ev.target.closest('figure img'); if (!im) return;
+    var ov = document.createElement('div'); ov.id = 'zoom';
+    var big = document.createElement('img'); big.src = im.src; big.alt = im.alt;
+    big.style.width = Math.max(im.naturalWidth / 1.1, window.innerWidth * 1.6) + 'px';
+    ov.appendChild(big); document.body.appendChild(ov);
+    ov.scrollLeft = (ov.scrollWidth - ov.clientWidth) / 2;
+    ov.addEventListener('click', function () { ov.remove(); });
   });
 
   /* ---------- rutas ---------- */
