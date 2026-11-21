@@ -40,5 +40,19 @@
   "author": "Javier",
   "file": "notes/explicabilidad-lightgbm-clasificacion.html",
   "rev": "1b1cbdc9"
+ },
+ {
+  "id": "teoria-aprendizaje-dimension-vc",
+  "title": "Teoría del aprendizaje estadístico: de la cota de Hoeffding a la dimensión VC",
+  "author": "Javier",
+  "file": "notes/teoria-aprendizaje-dimension-vc.html",
+  "rev": "6882c04e"
+ },
+ {
+  "id": "conformal-prediction",
+  "title": "Conformal prediction: intervalos con garantía, por tipo de producto",
+  "author": "Javier",
+  "file": "notes/conformal-prediction.html",
+  "rev": "741d00c6"
  }
 ]

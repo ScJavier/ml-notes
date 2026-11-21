@@ -12,4 +12,6 @@ PWA para leer notas de estudio de ML con fórmulas (KaTeX), barra lateral, búsq
   - `lightgbm_experimentos.py`, `catboost_experimentos.py`: experimentos sintéticos de las notas 3 y 4.
   - `simulacion.py`: datos con estructura conocida; `herramientas.py`: H de Friedman, ALE, residuos agrupados, etc.
   - `explicabilidad_regresion.py`, `explicabilidad_clasificacion.py`: notas 5 y 6 (escriben figuras en `src/fig/`).
+  - `vc_simulaciones.py`: nota 7 (convergencia uniforme y ERM exactos por programación dinámica).
+  - `conformal_productos.py`: nota 8 (conformal marginal, Mondrian por tipo, normalizado, CQR, crepes y MAPIE).
 - Las figuras de `src/fig/` se incrustan como WebP dentro de cada nota al construir, para que funcionen sin conexión.
