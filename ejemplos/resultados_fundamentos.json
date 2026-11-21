@@ -1,0 +1,164 @@
+{
+ "A_rmse_vs_verdad": {
+  "1": 0.819,
+  "5": 0.625,
+  "25": 0.353,
+  "100": 0.142,
+  "400": 0.11
+ },
+ "B_shrinkage": [
+  {
+   "nu": 1.0,
+   "mejor_M": 11,
+   "rmse_val": 2.151,
+   "rmse_prueba": 2.174,
+   "rmse_ent_en_mejor": 1.46,
+   "rmse_val_final": 2.435
+  },
+  {
+   "nu": 0.3,
+   "mejor_M": 100,
+   "rmse_val": 1.444,
+   "rmse_prueba": 1.438,
+   "rmse_ent_en_mejor": 0.599,
+   "rmse_val_final": 1.473
+  },
+  {
+   "nu": 0.1,
+   "mejor_M": 330,
+   "rmse_val": 1.357,
+   "rmse_prueba": 1.366,
+   "rmse_ent_en_mejor": 0.533,
+   "rmse_val_final": 1.379
+  },
+  {
+   "nu": 0.03,
+   "mejor_M": 905,
+   "rmse_val": 1.361,
+   "rmse_prueba": 1.36,
+   "rmse_ent_en_mejor": 0.602,
+   "rmse_val_final": 1.374
+  }
+ ],
+ "C_profundidad": [
+  {
+   "datos": "aditiva",
+   "prof_1": 1.073,
+   "M_1": 1177,
+   "prof_2": 1.113,
+   "M_2": 344,
+   "prof_3": 1.13,
+   "M_3": 172,
+   "prof_6": 1.236,
+   "M_6": 91
+  },
+  {
+   "datos": "Friedman #1 (orden 2)",
+   "prof_1": 1.739,
+   "M_1": 560,
+   "prof_2": 1.238,
+   "M_2": 1071,
+   "prof_3": 1.244,
+   "M_3": 648,
+   "prof_6": 1.39,
+   "M_6": 426
+  },
+  {
+   "datos": "con término de orden 3",
+   "prof_1": 4.201,
+   "M_1": 178,
+   "prof_2": 2.675,
+   "M_2": 1453,
+   "prof_3": 1.387,
+   "M_3": 347,
+   "prof_6": 1.442,
+   "M_6": 150
+  }
+ ],
+ "D_submuestreo": [
+  {
+   "subsample": 1.0,
+   "rmse_media": 1.394,
+   "rmse_de": 0.028,
+   "M_medio": 1071,
+   "segundos": 3.8
+  },
+  {
+   "subsample": 0.8,
+   "rmse_media": 1.341,
+   "rmse_de": 0.022,
+   "M_medio": 924,
+   "segundos": 3.1
+  },
+  {
+   "subsample": 0.5,
+   "rmse_media": 1.319,
+   "rmse_de": 0.029,
+   "M_medio": 1017,
+   "segundos": 2.1
+  },
+  {
+   "subsample": 0.2,
+   "rmse_media": 1.342,
+   "rmse_de": 0.016,
+   "M_medio": 901,
+   "segundos": 1.2
+  }
+ ],
+ "E_robustas": [
+  {
+   "perdida": "cuadrática",
+   "rmse_vs_verdad": 0.733,
+   "sesgo_medio": 0.616
+  },
+  {
+   "perdida": "absoluta",
+   "rmse_vs_verdad": 0.122,
+   "sesgo_medio": 0.029
+  },
+  {
+   "perdida": "Huber (α = 0.9)",
+   "rmse_vs_verdad": 0.484,
+   "sesgo_medio": 0.372
+  }
+ ],
+ "E_desplazamiento_esperado_media": 0.6,
+ "F_treeboost_l1": [
+  {
+   "hojas": "media",
+   "MAE_M10": 3.668,
+   "MAE_M50": 2.57,
+   "MAE_M200": 1.177,
+   "MAE_M1000": 1.08
+  },
+  {
+   "hojas": "treeboost",
+   "MAE_M10": 2.663,
+   "MAE_M50": 1.432,
+   "MAE_M200": 1.061,
+   "MAE_M1000": 1.025
+  }
+ ],
+ "F_mae_oraculo": 0.802,
+ "G_adaboost": [
+  {
+   "modelo": "AdaBoost (SAMME, stumps)",
+   "exactitud": 0.81,
+   "auc": 0.891
+  },
+  {
+   "modelo": "GB pérdida exponencial",
+   "exactitud": 0.812,
+   "auc": 0.893,
+   "pendiente_F_vs_logodds_real": 0.491,
+   "logloss": 0.4037
+  },
+  {
+   "modelo": "GB log-loss",
+   "exactitud": 0.812,
+   "auc": 0.893,
+   "pendiente_F_vs_logodds_real": 0.905,
+   "logloss": 0.4044
+  }
+ ]
+}

@@ -4,14 +4,14 @@
   "title": "Fundamentos de Gradient Boosting",
   "author": "Javier",
   "file": "notes/fundamentos-gradient-boosting.html",
-  "rev": "724bbc08"
+  "rev": "90ce9a3b"
  },
  {
   "id": "xgboost-objetivo-y-ganancia",
   "title": "XGBoost: derivación del objetivo y la ganancia",
   "author": "Javier",
   "file": "notes/xgboost-objetivo-y-ganancia.html",
-  "rev": "2dce2ede"
+  "rev": "e9766e8b"
  },
  {
   "id": "lightgbm",
