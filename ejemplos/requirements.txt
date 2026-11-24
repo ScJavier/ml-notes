@@ -8,3 +8,4 @@ dalex>=1.7
 crepes
 mapie[conditional]>=1.6
 scipy
+gpboost

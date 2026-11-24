@@ -54,5 +54,12 @@
   "author": "Javier",
   "file": "notes/conformal-prediction.html",
   "rev": "741d00c6"
+ },
+ {
+  "id": "articulo-gpboost",
+  "title": "Artículo 1 · Gaussian Process Boosting (GPBoost)",
+  "author": "Fabio Sigrist · JMLR 2022",
+  "file": "notes/articulo-gpboost.html",
+  "rev": "4063d7f2"
  }
 ]
