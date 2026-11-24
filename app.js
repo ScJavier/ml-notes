@@ -3,7 +3,10 @@
    k = índice de bloque, f = fracción dentro del bloque, p = progreso lineal en [0,1]. */
 (function () {
   'use strict';
-  var APP_VERSION = '1.0';
+  var APP_VERSION = '1.1';
+  /* El navegador no debe restaurar el scroll al ir atrás/adelante: lo hace antes de que la app guarde
+     y la posición de la biblioteca (arriba) se registraba como progreso 0 de la nota. */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   var $ = function (s, r) { return (r || document).querySelector(s); };
   function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
@@ -16,7 +19,7 @@
   var prefs = { fs: 19, ff: 'g', th: 'sepia' };
   try { var sp = JSON.parse(lsGet('prefs') || '{}'); for (var k0 in sp) prefs[k0] = sp[k0]; } catch (e) {}
 
-  var S = { id: null, rev: '', notes: [], blocks: [], w: [], cum: [], total: 1, ready: false, restoring: false, dragging: false, sidx: null, timer: 0 };
+  var S = { id: null, rev: '', notes: [], blocks: [], w: [], cum: [], total: 1, ready: false, restoring: false, dragging: false, sidx: null, timer: 0, pos: null };
 
   function applyPrefs() {
     var pos = (S.id !== null && S.ready) ? locate() : null;
@@ -81,10 +84,13 @@
     goTo(lo, S.w[lo] > 0 ? (target - S.cum[lo]) / S.w[lo] : 0);
   }
   function setSlider(p) { $('#sl').value = Math.round(p * 1000); $('#pct').textContent = Math.round(p * 100) + ' %'; }
-  function updateUI() { if (S.id === null || S.restoring || S.dragging) return; setSlider(locate().p); }
-  function save() {
+  function updateUI() { if (S.id === null || S.restoring || S.dragging) return; S.pos = locate(); setSlider(S.pos.p); }
+  /* alSalir = true: se guarda la última posición vista al leer (S.pos), no la que haya en pantalla al
+     momento de salir, que puede ser ya la de otra vista. */
+  function save(alSalir) {
     if (!S.ready || S.id === null || S.restoring) return;
-    var pos = locate();
+    var pos = (alSalir === true && S.pos) ? S.pos : locate();
+    S.pos = pos;
     lsSet('prog:' + S.id, JSON.stringify({ k: pos.k, f: pos.f, p: pos.p, rev: S.rev, t: Date.now() }));
   }
   var raf = 0;
@@ -93,8 +99,8 @@
     if (!raf) raf = requestAnimationFrame(function () { raf = 0; updateUI(); });
     clearTimeout(S.timer); S.timer = setTimeout(save, 500);
   }, { passive: true });
-  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') save(); });
-  window.addEventListener('pagehide', save);
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') save(true); });
+  window.addEventListener('pagehide', function () { save(true); });
 
   var sl = $('#sl');
   sl.addEventListener('input', function () { S.dragging = true; var p = sl.value / 1000; goToP(p); $('#pct').textContent = Math.round(p * 100) + ' %'; });
@@ -130,7 +136,7 @@
   function openNote(n) {
     return fetch(n.file, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw 0; return r.text(); }).then(function (html) {
       showView('reader');
-      S.id = n.id; S.rev = n.rev || ''; S.ready = false; S.restoring = true; S.sidx = null;
+      S.id = n.id; S.rev = n.rev || ''; S.ready = false; S.restoring = true; S.sidx = null; S.pos = null;
       document.title = n.title; $('#ttl').textContent = n.title;
       $('#content').innerHTML = '<h1 class="title">' + esc(n.title) + '</h1><p class="author">' + esc(n.author || '') + '</p>' + html;
       fitMath();
@@ -256,9 +262,9 @@
     indexP.then(function () {
       if (m) {
         var id = decodeURIComponent(m[1]), n = S.notes.filter(function (x) { return x.id === id; })[0];
-        if (n) { if (S.id !== null && S.id !== id) save(); return openNote(n).catch(function () { toast('No se pudo cargar la nota (¿sin conexión?)'); location.hash = '#/'; }); }
+        if (n) { if (S.id !== null && S.id !== id) save(true); return openNote(n).catch(function () { toast('No se pudo cargar la nota (¿sin conexión?)'); location.hash = '#/'; }); }
       }
-      if (S.id !== null) save();
+      if (S.id !== null) save(true);
       renderLib();
     });
   }
