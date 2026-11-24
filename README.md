@@ -19,4 +19,6 @@ PWA para leer notas de estudio de ML con fórmulas (KaTeX), barra lateral, búsq
   - `hs_articulo.py`: nota 11 (Hierarchical Shrinkage a mano: sesgo-varianza, CART/RF y extensión a boosting).
   - `megb_articulo.py`: nota 12 (MEGB, MERF, BHF y GPBoost para medias de área en la simulación del artículo).
 - Notas 9–12: resúmenes de artículos (GPBoost, LaGaBoost, Hierarchical Shrinkage, MEGB).
+- Notas 13+: serie de modelos mixtos con ejemplos simulados incrementales.
+  - `mixtos_01_escuelas.py`: nota 13 (intercepto aleatorio: BLUP, componentes de varianza, ML vs REML, efecto de diseño).
 - Las figuras de `src/fig/` se incrustan como WebP dentro de cada nota al construir, para que funcionen sin conexión.

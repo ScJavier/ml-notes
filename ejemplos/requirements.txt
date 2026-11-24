@@ -11,3 +11,4 @@ scipy
 gpboost
 xgboost
 imodels  # opcional: solo para verificar la nota 11
+statsmodels>=0.14
