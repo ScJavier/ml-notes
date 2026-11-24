@@ -61,5 +61,26 @@
   "author": "Fabio Sigrist · JMLR 2022",
   "file": "notes/articulo-gpboost.html",
   "rev": "4063d7f2"
+ },
+ {
+  "id": "articulo-lagaboost",
+  "title": "Artículo 2 · Latent Gaussian Model Boosting (LaGaBoost)",
+  "author": "Fabio Sigrist · IEEE TPAMI 2023",
+  "file": "notes/articulo-lagaboost.html",
+  "rev": "86bc2548"
+ },
+ {
+  "id": "articulo-hierarchical-shrinkage",
+  "title": "Artículo 3 · Hierarchical Shrinkage: encoger árboles sin tocar su estructura",
+  "author": "Agarwal, Tan, Ronen, Singh y Yu · ICML 2022",
+  "file": "notes/articulo-hierarchical-shrinkage.html",
+  "rev": "97d4d5cd"
+ },
+ {
+  "id": "articulo-megb",
+  "title": "Artículo 4 · Mixed Effect Gradient Boosting (MEGB) para estimación en áreas pequeñas",
+  "author": "Messer y Schmid · arXiv 2025",
+  "file": "notes/articulo-megb.html",
+  "rev": "c18a0871"
  }
 ]

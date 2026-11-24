@@ -15,4 +15,8 @@ PWA para leer notas de estudio de ML con fórmulas (KaTeX), barra lateral, búsq
   - `vc_simulaciones.py`: nota 7 (convergencia uniforme y ERM exactos por programación dinámica).
   - `conformal_productos.py`: nota 8 (conformal marginal, Mondrian por tipo, normalizado, CQR, crepes y MAPIE).
   - `gpboost_articulo.py`: nota 9 (réplica reducida del experimento agrupado de GPBoost, con GPBoostOOS manual).
+  - `lagaboost_articulo.py`: nota 10 (LaGaBoost binario agrupado, variando observaciones por grupo).
+  - `hs_articulo.py`: nota 11 (Hierarchical Shrinkage a mano: sesgo-varianza, CART/RF y extensión a boosting).
+  - `megb_articulo.py`: nota 12 (MEGB, MERF, BHF y GPBoost para medias de área en la simulación del artículo).
+- Notas 9–12: resúmenes de artículos (GPBoost, LaGaBoost, Hierarchical Shrinkage, MEGB).
 - Las figuras de `src/fig/` se incrustan como WebP dentro de cada nota al construir, para que funcionen sin conexión.

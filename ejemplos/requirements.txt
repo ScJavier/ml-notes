@@ -9,3 +9,5 @@ crepes
 mapie[conditional]>=1.6
 scipy
 gpboost
+xgboost
+imodels  # opcional: solo para verificar la nota 11
